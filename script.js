@@ -35,7 +35,13 @@ const getWeather = () => {
             result.style.visibility = 'visible'
 
             // rounding off the temperature before using it
-            let temp = Math.round(data.main.temp) 
+            const temp = Math.round(data.main.temp) 
+
+            const main = data.weather[0].main
+            const icon = data.weather[0].icon
+            const desc = data.weather[0].description
+
+           
             
             let display = ''
 
@@ -43,17 +49,25 @@ const getWeather = () => {
                 <h2 id="city">Weather in ${data.name}</h2>
                 <div id="day">${day}</div>
                 <div id="temp">${temp}C</div>
-                <img id='img' src="images/cloud.png" alt="">
-                <div id="description">${data.weather[0].description}</div>
+                <img id='img' src="" alt="">
+                <div id="description">${desc}</div>
                 <div id="humid">Humidity: ${data.main.humidity}</div>`
 
             result.innerHTML = display
+            const image = document.querySelector('img')
+            if (main) {
+                image.src =` http://openweathermap.org/img/wn/${icon}@2x.png`
+            } 
             
-
-
         }
     })
    
     // result.style.visibility = 'visible'
 }
+
+// event listener
 btn.addEventListener('click', getWeather)
+
+
+
+// || main === 'Thunderstorm' || main === 'drizzle' || main === 'snow' || main === 'clear' || main === 'rain' || main === 'mist'

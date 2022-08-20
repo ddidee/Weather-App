@@ -65,7 +65,7 @@ body{
 }
 
 #searchResult #city{
-    margin-top: 5%;
+    margin-top: 7%;
 }
 
 #searchResult #day{
@@ -74,7 +74,7 @@ body{
 }
 
 #searchResult #temp{
-    margin: 9% 0;
+    margin: 10% 0 5% 0;
     font: 2.5rem bold;
 
 }
@@ -83,10 +83,15 @@ body{
 
 }
 #searchResult img{
-    width: 30%;
+    width: 35%;
+    margin-top: -5%;
+    color: rgb(112, 112, 159);
 }
 #searchResult #humid{
     margin: 8% 0;
     font: larger bold;
 
+}
+.notFound{
+    margin: auto;
 }
