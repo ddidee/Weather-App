@@ -10,11 +10,14 @@ let day = days[date.getDay()]
 console.log(day);
 
 
-// getting the weather in each city
+// function fetching the weather data in each city
 const getWeather = () => {
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q= ${input.value} &appid=b51729efe28965ec1f969b612b0507a6`)
-    .then(res => {
+    .then(res => { 
+
+    // when a user inputs a wrong or unavailable city name
+
         if(!res.ok){
             search.style.visibility = 'hidden'
             result.style.visibility = 'visible'
@@ -31,6 +34,8 @@ const getWeather = () => {
         
         else {
 
+            // display the weather data for the city
+            
             search.style.visibility = 'hidden'
             result.style.visibility = 'visible'
 
@@ -54,6 +59,9 @@ const getWeather = () => {
                 <div id="humid">Humidity: ${data.main.humidity}</div>`
 
             result.innerHTML = display
+
+            // displaying icons for each weather condition
+
             const image = document.querySelector('img')
             if (main) {
                 image.src =` http://openweathermap.org/img/wn/${icon}@2x.png`
@@ -62,7 +70,6 @@ const getWeather = () => {
         }
     })
    
-    // result.style.visibility = 'visible'
 }
 
 // event listener
